@@ -1,0 +1,8 @@
+from sqlalchemy.orm import declarative_base  # Base para definir modelos 
+from sqlalchemy import String  # Tipo de dato para columnas
+from sqlalchemy.orm import Mapped, mapped_column  # Para mapear columnas a atributos de clase
+Base = declarative_base()
+class ExampleModel(Base):
+    __tablename__ = 'mi_base'  
+    id: Mapped[int] = mapped_column(primary_key=True)  # Columna 'id', clave primaria
+    username: Mapped[str] = mapped_column(String(50), unique=True)  # Columna 'username', única
